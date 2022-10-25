@@ -1,0 +1,157 @@
+<app-navbar></app-navbar>
+<div class="container" >
+    <div class="row">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="login-wrap">
+                <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                    <div class="login-form">
+                        <div class="sign-in-htm">
+                            <div class="group">
+                              <i class="fas fa-user"></i>
+                                <label for="user" class="label" >Username</label>
+                                <input id="user" type="text" class="input" name="lusername" [(ngModel)]="login.luserName">
+                            </div>
+                            <div class="group">
+                              <i class="fas fa-lock"></i>
+                                <label for="pass" class="label">Password</label>
+                                <input id="pass" type="password" class="input" data-type="password" name="lpassword" [(ngModel)]="login.lpassword">
+                            </div>
+                            <div class="group">
+                                <input id="check" type="checkbox" class="check" >
+                                <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Sign In" (click)="Login()">
+                            </div>
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                                <a href="#forgot">Forgot Password?</a>
+                            </div>
+                            <p class="social-text">Or Sign in with social platforms</p>
+                            <div class="social-media">
+                              <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                              </a>
+                              <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                              </a>
+                              <a href="#" class="social-icon">
+                                <i class="fab fa-google"></i>
+                              </a>
+                              <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                              </a>
+                            </div>
+                            
+                        </div>
+  
+                        <div class="sign-up-htm">
+                            <form class="row g-3 needs-validation" novalidate #register="ngForm"   >
+                              <div class="group">
+                                <label for="Name" class="label">Name</label>
+                                <input id="Name" type="text" name="namefield" [(ngModel)]="user.name" class="input" required>
+                                <div class="invalid-feedback">
+                                  Please write a valid name
+                                </div>
+                            </div>
+
+
+                            <div class="group">
+                                <i class="fas fa-user"></i>
+                                <label for="user" class="label">Username</label>
+                                <input id="user" type="text" class="input"  name="username" [(ngModel)]="user.userName" required minlength="6" maxlength="20">
+                                <div class="invalid-feedback">
+                                  should have atleast 6 characters
+                                </div>
+                               </div>
+  
+                            <div class="group">
+                                <label for="registerno" class="label">RegisterNumber</label>
+                                <input id="registerno" name="register" [(ngModel)]="user.registerNumber" type="text" class="input" required pattern="[0-9]*" minlength="11" maxlength="11" >
+                                <div class="invalid-feedback">
+                                  provide a valid Register number
+                                </div>
+                            </div>
+  
+                            <div class="group">
+                                <label for="addr" class="label">Address</label>
+                                <textarea [(ngModel)]="user.address" name="addr" id="9" cols="" rows="" class="textarea" required ></textarea>
+                                <div class="invalid-feedback">
+                                  Address is required
+                                </div>
+                            </div>
+  
+                            <div class="group">
+                                <label for="dept" class="label">Department</label>
+                                <input id="dept" type="text" name="deptment" [(ngModel)]="user.department" class="input" required>
+                                <div class="invalid-feedback">
+                                  Department is required
+                                </div>
+                            </div>
+  
+                            <div class="group">
+                                <label for="sem" class="label">Semester</label>
+                                <input id="sem" type="text" name="semester" [(ngModel)]="user.semester" class="input" required pattern="[1-6]*" maxlength="1" >
+                                <div class="invalid-feedback">
+                                  Semester is required
+                                </div>
+                            </div>
+  
+                            <div class="group">
+                                <label for="board" class="label">BoardingPoint</label>
+                                <select id="board" type="text" name="bpoint" [(ngModel)]="user.boardingPoint" class="select" required>
+                                    <option value="Trivandrum">Trivandrum</option>
+                                    <option value="Neyyattinkara">Neyyattinkara</option>
+                                    <option value="Maranalloor">Maranalloor</option>
+                                    <option value="Balaramapuram">Balaramapuram</option>
+                                </select>
+                            </div>
+                             
+                            <div class="group">
+                              <i class="fas fa-envelope"></i>
+                              <label for="email" class="label">Emailid</label>
+                              <input type="email" name="email" id="id" [(ngModel)]="user.email" class="input" required pattern=".+@gmail.com">
+                              <div class="invalid-feedback">
+                                provide a valid email-id
+                              </div>
+                            </div>
+                          
+                                <div class="group">
+                                  <i class="fas fa-lock"></i>
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="pass" type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="input" data-type="password" required minlength="6" maxlength="40" >
+                                    <div class="invalid-feedback">
+                                      should have atleast 6 characters
+                                    </div>
+                                </div>
+                          
+  
+                                <div class="group">
+                                  <i class="fas fa-lock"></i>
+                                    <label for="confirmpass" class="label">ConformPassword</label>
+                                    <input id="confirmpass" type="password" name="cpass" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" ngClass="{ 'is-invalid': register.submmitted &&confirmPassword.errors'}" class="input" data-type="password" required>
+                                     <div *ngIf="!(confirmPassword == password)" class="invalid-feedback">
+                                       password is not matching
+                                     </div>
+                                </div>
+                        
+                                <div class="group" *ngIf=" register.valid">
+                                  <input class="button" type="submit" value="Register" (click)="Adduser()" >
+                                </div>
+                                <div class="group" *ngIf="!register.valid">
+                                  <input  class="button" type="submit" value="Register">
+                                </div>
+                            <div class="foot-lnk">
+                              <label for="tab-1">Already Member?</label>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
